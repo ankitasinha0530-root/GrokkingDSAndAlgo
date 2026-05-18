@@ -9,7 +9,6 @@ public class JElemInRotatedArray {
 		System.out.println("value = " + JElemInRotatedArray.elemInRotatedArray(new int[] {1, 3, 8, 12}, 12));
 		System.out.println("value = " + JElemInRotatedArray.elemInRotatedArray(new int[] {10, 9, 8 }, 10));
 
-
 	}
 
 	private static int elemInRotatedArray(int[] arr, int key) {
@@ -27,7 +26,7 @@ public class JElemInRotatedArray {
 				}else {
 					start = mid  + 1;
 				}
-			}else {
+			}else { // in descending order
 				if(key > arr[mid] && key < arr[end]) {
 					start = mid + 1;
 				}else {

@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 public class AvgOfContSubarray {
 
+	public static void main(String[] args) {
+
+		double[] result = AvgOfContSubarray.AvgOfContinSubarray(5, new int[] {2, 6, 7, 8, 9, -1, 6, 4, 5, 3 });
+
+		System.out.println("AvgOfContSubarray == " + Arrays.toString(result));
+	}
+
 	public static double[] AvgOfContinSubarray(int k, int[] arr) {
 		
 		double[] sumArray = new double[arr.length -1];
@@ -21,13 +28,6 @@ public class AvgOfContSubarray {
 		}
 		
 		return sumArray;
-		
 	}
-	
-	public static void main(String[] args) {
-		
-		double[] result = AvgOfContSubarray.AvgOfContinSubarray(5, new int[] {2, 6, 7, 8, 9, -1, 6, 4, 5,3 });
-		
-		System.out.println("AvgOfContSubarray == " + Arrays.toString(result));
-	}
+
 }
