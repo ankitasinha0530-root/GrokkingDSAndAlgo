@@ -27,7 +27,10 @@ public class MTreeDiameter {
 		System.out.println(" Diameter of a tree V2 = " + treeDiameterV2(root));
 		
 	}
-	
+	static class Diapair{
+		int ht;
+		int dia;
+	}
 	// Here we are extracting both maximum height and maximum diameter in the same call
 	private static int treeDiameter(TreeNode root) {
 		
@@ -39,12 +42,9 @@ public class MTreeDiameter {
 		
 		return diameter;
 	}
-	static class Diapair{
-		int ht;
-		int dia;
-	}
-	// Optimized way of solution 
-	// create an object to hold height and diameter
+
+
+	// Optimized way of solution, create an object to hold height and diameter
 	private static Diapair treeDiameter2(TreeNode root) {
 
 		if(root == null) {

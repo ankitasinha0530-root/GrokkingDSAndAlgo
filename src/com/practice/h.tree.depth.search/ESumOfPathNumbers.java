@@ -10,18 +10,23 @@ public class ESumOfPathNumbers {
 		root.left = new TreeNode(7);
 		root.right = new TreeNode(1);
 		root.left.left = new TreeNode(9);
+
 		root.right.left = new TreeNode(4);
 		root.right.right= new TreeNode(5);
+
 		root.right.left.left = new TreeNode(5);
 		root.right.left.right = new TreeNode(8);
 		
 		System.out.println(" Sum of Path Numbers = " + sumOfPathNumbers(root));
 		
-		System.out.println(" Sum of Path Numbers = " + sumOfPathNumbersv2(root));
+		System.out.println(" Sum of Path Numbers V2 = " + sumOfPathNumbersv2(root));
+
+		System.out.println(" Sum of Path Numbers V3 = " + sumOfPathNumbersv3(root));
 
 	}
 	static int sum = 0;
-	
+
+	// this gives correct answer
 	private static int sumOfPathNumbers(TreeNode root) {
 		sumOfPathNumbers(root, 0); //since there are no nodes before root so pass val as 0
 		return sum;
@@ -32,11 +37,11 @@ public class ESumOfPathNumbers {
 		if(currNode == null) return;
 		
 		num = 10*num + currNode.val;
-		System.out.println("num == " + num);
+	//	System.out.println("num == " + num);
 		
 		if(currNode.left == null && currNode.right == null) {
 			sum += num;
-			System.out.println(sum);
+//			System.out.println(sum);
 			return;
 		}
 		sumOfPathNumbers(currNode.left, num);
@@ -47,6 +52,7 @@ public class ESumOfPathNumbers {
 	// different method
 
 	private static int sumOfPathNumbersv2(TreeNode root) {
+
 		return sumOfPathNumbersv2(root, 0);
 	}
 
@@ -54,7 +60,7 @@ public class ESumOfPathNumbers {
 
 		if(currNode == null) return 0;
 		
-		pathSum += 10*pathSum + currNode.val;
+		pathSum = 10*pathSum + currNode.val;
 		
 		if(currNode.left == null && currNode.right == null) {
 			return pathSum;
@@ -62,7 +68,29 @@ public class ESumOfPathNumbers {
 		
 		return sumOfPathNumbersv2(currNode.left, pathSum) + sumOfPathNumbersv2(currNode.right, pathSum);
 	}
-	
+
+	private static int sumOfPathNumbersv3(TreeNode root) {
+
+		return sumOfPathNumbersv3(root, 0);
+	}
+
+	private static int sumOfPathNumbersv3(TreeNode currNode, int pathSum) {
+
+		if(currNode == null) return 0;
+
+		pathSum = 10*pathSum + currNode.val;
+
+		if(currNode.left == null && currNode.right == null) {
+			return pathSum;
+		}
+
+		int leftSum = sumOfPathNumbersv3(currNode.left, pathSum);
+		int rightSum = sumOfPathNumbersv3(currNode.right, pathSum);
+
+		return leftSum + rightSum;
+	}
+
+
 
 }
 

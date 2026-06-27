@@ -63,8 +63,11 @@ public class GCurrentLevelOrderSibling {
 		mq.add(root);
 		
 		while(!mq.isEmpty()) {
+
 			TreeNode prevNode = null;
-			int levelSize = mq.size();	
+
+			int levelSize = mq.size();
+
 			for (int i = 0; i < levelSize; i++) {
 				TreeNode currNode = mq.poll();
 				
@@ -72,6 +75,7 @@ public class GCurrentLevelOrderSibling {
 					prevNode.next = currNode;
 				}
 				prevNode = currNode;
+
 				if(currNode.left != null) {
 					mq.add(currNode.left);
 				}

@@ -85,7 +85,8 @@ public class JCountPathsForASumFromAnyNode {
 		pathCount += getPathCount(currNode.left, sum, currPath);
 		pathCount += getPathCount(currNode.right, sum, currPath);
 		
-		currPath.remove(currPath.size() - 1);
+		currPath.removeLast();
+
 		return pathCount;
 	}
 

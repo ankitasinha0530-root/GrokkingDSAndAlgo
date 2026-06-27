@@ -12,17 +12,17 @@ public class BAllPathsForATargetSumForAnyPath {
 		//	Refer Video = https://www.youtube.com/watch?v=ojxo9QjPKvA
 		// refer video = https://www.youtube.com/watch?v=HyNczj2pEEY
 
-		TreeNode root = new TreeNode(2);
-		root.left = new TreeNode(7);
-		root.right = new TreeNode(1);
-		root.left.left = new TreeNode(9);
-		root.right.left = new TreeNode(4);
-		root.right.right= new TreeNode(5);
-		root.right.left.left = new TreeNode(3);
-		root.right.left.right = new TreeNode(8);
-		
-		List<List<Integer>> result = allPathsForASumFromAnyNode(root, 8);
-		System.out.println("All Paths = " + result);
+			TreeNode root = new TreeNode(2);
+			root.left = new TreeNode(7);
+			root.right = new TreeNode(1);
+			root.left.left = new TreeNode(9);
+			root.right.left = new TreeNode(4);
+			root.right.right= new TreeNode(5);
+			root.right.left.left = new TreeNode(3);
+			root.right.left.right = new TreeNode(8);
+
+			List<List<Integer>> result = allPathsForASumFromAnyNode(root, 8);
+			System.out.println("All Paths = " + result);
 	}
 	
 	private static List<List<Integer>> allPathsForASumFromAnyNode(TreeNode root, int sum) {
@@ -34,6 +34,7 @@ public class BAllPathsForATargetSumForAnyPath {
 	}
 
 	private static void allPaths(TreeNode currNode, int target, List<Integer> currPath, List<List<Integer>> result) {
+
 		if(currNode == null) {
 			return;
 		}

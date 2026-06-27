@@ -41,6 +41,7 @@ public class IRightViewOFABinaryTree {
 			
 			for (int i = 0; i < levelSize; i++) {
 				TreeNode currNode = mq.poll();
+
 				if(currNode.left != null) {
 					mq.add(currNode.left);
 				}

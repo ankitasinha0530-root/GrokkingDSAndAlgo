@@ -29,7 +29,7 @@ public class HConnectAllLevelOrderSibling {
 		root.right.left.right = new TreeNode(17);
 
 		TreeNode current = root;
-		HConnectAllLevelOrderSibling.connectAllLvlOrdrSib(root);
+		HConnectAllLevelOrderSibling.connectAllLevelOrderSiblings(root);
 		System.out.println("Level Order Traversal using next pointer = ");
 		while(current != null) {
 			System.out.print(current.val + " ");
@@ -37,32 +37,37 @@ public class HConnectAllLevelOrderSibling {
 		}
 	}
 
-	private static void connectAllLvlOrdrSib(TreeNode root) {
-		if(root == null) return;
+	private static void connectAllLevelOrderSiblings(TreeNode root) {
 
-		Queue<TreeNode> mq = new LinkedList<>();
-		mq.add(root);
-		TreeNode prevNode = null, currNode = null;
-		
-		while(mq.size() > 0) {
-			currNode = mq.poll();
-			if(prevNode != null) {
-				prevNode.next = currNode;
+		Queue<TreeNode> queue = new LinkedList<>();
+
+		queue.add(root);
+
+		TreeNode prev = null;
+
+		while (!queue.isEmpty()) {
+
+			int levelSize = queue.size();
+
+			for (int i = 0; i < levelSize; i++) {
+
+				TreeNode currNode = queue.poll();
+
+				if(prev != null) {
+					prev.next = currNode;
+				}
+				prev = currNode;
+
+				if (currNode.left != null){
+					queue.add(currNode.left);
+				}
+				if (currNode.right != null){
+					queue.add(currNode.right);
+				}
 			}
-			prevNode = currNode;
-			
-			if(currNode.left != null) {
-				mq.add(currNode.left);
-			}
-			if(currNode.right != null) {
-				mq.add(currNode.right);
-			}
-			
-			
-			
-			
-			
+
 		}
+
 	}
 
 }

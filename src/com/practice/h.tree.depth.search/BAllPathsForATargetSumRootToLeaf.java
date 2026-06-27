@@ -46,7 +46,9 @@ public class BAllPathsForATargetSumRootToLeaf {
 
 	private static void allPathsForASum(TreeNode currNode, int sum, List<Integer> currPath, List<List<Integer>> allPathss) {
 
-		if(currNode == null) return;
+		if(currNode == null) {
+			return;
+		}
 		
 		currPath.add(currNode.val);
 		

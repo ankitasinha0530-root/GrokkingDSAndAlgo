@@ -28,7 +28,7 @@ public class KPathWithMaxSum {
 
 	}
 
-	private static int pathWithMaxSum(TreeNode root, int maxSumforLongestPath) {
+	private static int pathWithMaxSum(TreeNode root, int maxSumPath) {
 		
 		if(root == null) {
 			return 0;
@@ -37,10 +37,10 @@ public class KPathWithMaxSum {
 			return root.val;
 		}
 		
-		int leftSum = pathWithMaxSum(root.left, maxSumforLongestPath);
-		int rightSum = pathWithMaxSum(root.right, maxSumforLongestPath);
-		
-		maxSumforLongestPath = Math.max(maxSumforLongestPath, root.val + leftSum + rightSum);
+		int leftSum = pathWithMaxSum(root.left, maxSumPath);
+		int rightSum = pathWithMaxSum(root.right, maxSumPath);
+
+		maxSumPath = Math.max(maxSumPath, root.val + leftSum + rightSum);
 		
 		return root.val + Math.max(leftSum, rightSum);
 	}
